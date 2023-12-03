@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Test.Model;
 using Test.Presentation.Command;
 
-namespace Test.Presentation;
+namespace Test.Presentation.MainPanels;
 
 /// <summary>
 /// Модель представления обозревателя проекта.

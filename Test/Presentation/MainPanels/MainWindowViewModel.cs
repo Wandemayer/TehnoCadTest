@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Test.Model;
 
-namespace Test.Presentation;
+namespace Test.Presentation.MainPanels;
 
 /// <summary>
 /// Модель представления главного окна.

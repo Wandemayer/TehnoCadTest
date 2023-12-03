@@ -1,6 +1,7 @@
 using Test.Model;
+using Test.Presentation.PropertyPanels;
 
-namespace Test.Presentation;
+namespace Test.Presentation.MainPanels;
 
 /// <summary>
 /// Модель представления панели свойств элемента.

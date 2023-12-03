@@ -1,4 +1,5 @@
 ﻿using Test.Presentation;
+using Test.Presentation.MainPanels;
 
 namespace Test.UI.View;
 

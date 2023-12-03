@@ -4,7 +4,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:presentation="clr-namespace:Test.Presentation"
-             d:DataContext="{d:DesignInstance presentation:ParcelPropsViewModel}"
+             xmlns:proreptyPanels="clr-namespace:Test.Presentation.PropertyPanels"
+             d:DataContext="{d:DesignInstance proreptyPanels:ParcelPropsViewModel}"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">

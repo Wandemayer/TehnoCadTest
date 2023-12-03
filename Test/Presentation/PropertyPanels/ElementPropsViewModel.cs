@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using Test.Model;
 
-namespace Test.Presentation;
+namespace Test.Presentation.PropertyPanels;
 
 /// <summary>
 /// Базовая абстрактная модель представления свойств элементов проекта.

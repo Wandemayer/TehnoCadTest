@@ -7,5 +7,11 @@ namespace Test.Presentation;
 /// </summary>
 public abstract class ViewModelBase : ObservedElement
 {
-    
+    /// <summary>
+    /// Выполняет отчистку ресурсов связанных с моделью представления.
+    /// </summary>
+    public virtual void Cleanup()
+    {
+        
+    }
 }

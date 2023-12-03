@@ -1,0 +1,58 @@
+<UserControl x:Class="Test.UI.View.BuildingPropsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:presentation="clr-namespace:Test.Presentation"
+             d:DataContext="{d:DesignInstance presentation:BuildingPropsViewModel}"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Thickness x:Key="TopMargin">0,5,0,0</Thickness>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Content="Наименование" />
+
+            <TextBox Grid.Column="1"
+                     Text="{Binding Title}" />
+        </Grid>
+
+        <Grid Margin="{StaticResource TopMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Content="Количество этажей" />
+
+            <TextBox Grid.Column="1"
+                     Text="{Binding FloorCount}" />
+        </Grid>
+
+        <Grid Margin="{StaticResource TopMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Content="Адрес" />
+
+            <TextBox Grid.Column="1"
+                     Text="{Binding Address}" />
+        </Grid>
+
+        <CheckBox Margin="{StaticResource TopMargin}"
+                  Content="Является жилым"
+                  IsChecked="{Binding IsLiving}" />
+    </StackPanel>
+</UserControl>

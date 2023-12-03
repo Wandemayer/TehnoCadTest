@@ -1,0 +1,31 @@
+<UserControl x:Class="Test.UI.View.PropertyEditorUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Test.UI.View"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:model="clr-namespace:Test.Model"
+             xmlns:presentation="clr-namespace:Test.Presentation"
+             xmlns:ui="clr-namespace:Test.UI"
+             d:DataContext="{d:DesignInstance presentation:PropertyEditorViewModel}"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <ContentPresenter Margin="5"
+                      Content="{Binding EditorElement}">
+        <ContentPresenter.ContentTemplateSelector>
+            <ui:ProjectElementTemplateSelector>
+                <ui:ProjectElementTemplateSelector.BuildingTemplate>
+                    <DataTemplate DataType="{x:Type model:Building}">
+                        <local:BuildingPropsUserControl DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.ElementPropsViewModel, Mode=OneWay}" />
+                    </DataTemplate>
+                </ui:ProjectElementTemplateSelector.BuildingTemplate>
+                <ui:ProjectElementTemplateSelector.ParcelTemplate>
+                    <DataTemplate DataType="{x:Type model:Parcel}">
+                        <local:ParcelPropsUserControl DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=DataContext.ElementPropsViewModel, Mode=OneWay}" />
+                    </DataTemplate>
+                </ui:ProjectElementTemplateSelector.ParcelTemplate>
+            </ui:ProjectElementTemplateSelector>
+        </ContentPresenter.ContentTemplateSelector>
+    </ContentPresenter>
+</UserControl>

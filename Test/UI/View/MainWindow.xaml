@@ -40,6 +40,9 @@
                           Height="3"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Center" />
+
+            <view:ValidationPanelUserControl Grid.Row="2"
+                                             DataContext="{Binding ValidationPanelViewModel}" />
         </Grid>
     </Grid>
 </Window>

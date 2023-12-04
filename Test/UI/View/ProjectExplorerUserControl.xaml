@@ -1,11 +1,11 @@
 <UserControl x:Class="Test.UI.View.ProjectExplorerUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:Test.UI.Converters"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mainPanels="clr-namespace:Test.Presentation.MainPanels"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:model="clr-namespace:Test.Model"
-             xmlns:presentation="clr-namespace:Test.Presentation"
              xmlns:ui="clr-namespace:Test.UI"
              d:DataContext="{d:DesignInstance mainPanels:ProjectExplorerViewModel}"
              d:DesignHeight="300"
@@ -15,15 +15,15 @@
         <ui:ProjectElementTemplateSelector x:Key="ListTemplateSelector">
             <ui:ProjectElementTemplateSelector.BuildingTemplate>
                 <DataTemplate DataType="{x:Type model:Building}">
-                    <GroupBox Header="Здание">
-                        <Label Content="{Binding Title}" />
+                    <GroupBox Header="{Binding Title, Converter={converters:ProjectTitleConverter}, ConverterParameter='Здание'}">
+                        <Label Content="{Binding Id}" />
                     </GroupBox>
                 </DataTemplate>
             </ui:ProjectElementTemplateSelector.BuildingTemplate>
             <ui:ProjectElementTemplateSelector.ParcelTemplate>
                 <DataTemplate DataType="{x:Type model:Parcel}">
-                    <GroupBox Header="Участок">
-                        <Label Content="{Binding Title}" />
+                    <GroupBox Header="{Binding Title, Converter={converters:ProjectTitleConverter}, ConverterParameter='Участок'}">
+                        <Label Content="{Binding Id}" />
                     </GroupBox>
                 </DataTemplate>
             </ui:ProjectElementTemplateSelector.ParcelTemplate>

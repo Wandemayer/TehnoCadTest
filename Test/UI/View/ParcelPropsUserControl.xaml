@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:presentation="clr-namespace:Test.Presentation"
              xmlns:proreptyPanels="clr-namespace:Test.Presentation.PropertyPanels"
              d:DataContext="{d:DesignInstance proreptyPanels:ParcelPropsViewModel}"
              d:DesignHeight="300"
@@ -23,7 +22,23 @@
                    Content="Наименование" />
 
             <TextBox Grid.Column="1"
+                     VerticalContentAlignment="Center"
                      Text="{Binding Title}" />
+        </Grid>
+
+        <Grid Margin="{StaticResource TopMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Content="Ид" />
+
+            <TextBox Grid.Column="1"
+                     VerticalContentAlignment="Center"
+                     IsReadOnly="True"
+                     Text="{Binding Id, Mode=OneWay}" />
         </Grid>
 
         <Grid Margin="{StaticResource TopMargin}">
@@ -36,6 +51,7 @@
                    Content="Номер участка" />
 
             <TextBox Grid.Column="1"
+                     VerticalContentAlignment="Center"
                      Text="{Binding Number}" />
         </Grid>
 
@@ -49,6 +65,7 @@
                    Content="Местоположение" />
 
             <TextBox Grid.Column="1"
+                     VerticalContentAlignment="Center"
                      Text="{Binding Location}" />
         </Grid>
     </StackPanel>

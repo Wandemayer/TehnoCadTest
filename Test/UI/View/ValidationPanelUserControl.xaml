@@ -1,6 +1,7 @@
 <UserControl x:Class="Test.UI.View.ValidationPanelUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:Test.UI.Converters"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mainPanels="clr-namespace:Test.Presentation.MainPanels"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -11,6 +12,12 @@
              mc:Ignorable="d">
     <ListView Grid.IsSharedSizeScope="True"
               ItemsSource="{Binding Errors}">
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            </Style>
+        </ListView.ItemContainerStyle>
         <ListView.ItemTemplate>
             <DataTemplate DataType="{x:Type validation:ValidationMessage}">
                 <Grid>
@@ -27,8 +34,14 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0"
-                               Margin="3"
-                               Text="{Binding Target.Title}" />
+                               Margin="3">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} [{1}]">
+                                <Binding Path="Target.Title" />
+                                <Binding Path="Target.Id" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
 
                     <TextBlock Grid.Column="1"
                                Margin="3"

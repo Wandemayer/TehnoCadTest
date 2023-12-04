@@ -32,6 +32,11 @@ public abstract class ElementPropsViewModel<TElement> : ViewModelBase
         set => Element.Title = value;
     }
 
+    /// <summary>
+    /// Возвращает Id элемента.
+    /// </summary>
+    public Guid Id => Element.Id;
+
     /// <inheritdoc />
     public override void Cleanup()
     {

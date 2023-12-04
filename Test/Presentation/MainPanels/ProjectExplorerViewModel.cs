@@ -24,6 +24,8 @@ public class ProjectExplorerViewModel : ViewModelBase
         
         var parcel = Project.CreateElement<Parcel>();
         parcel.Title = "Участок 1";
+
+        Project.CreateElement<Parcel>();
     }
 
     public ProjectExplorerViewModel(Project project)

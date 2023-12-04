@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 
 namespace Test.Model;
@@ -27,7 +28,10 @@ public class Project
     public TElement CreateElement<TElement>()
         where TElement : ProjectElementBase, new()
     {
-        var element = new TElement();
+        var element = new TElement
+        {
+            Id = Guid.NewGuid()
+        };
 
         _elements.Add(element);
 

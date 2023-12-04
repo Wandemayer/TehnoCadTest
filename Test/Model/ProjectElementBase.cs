@@ -1,3 +1,4 @@
+using System;
 using Test.Common;
 
 namespace Test.Model;
@@ -17,4 +18,9 @@ public abstract class ProjectElementBase : ObservedElement
         get => _title;
         set => SetField(ref _title, value);
     }
+    
+    /// <summary>
+    /// Возвращает Id элемента.
+    /// </summary>
+    public Guid Id { get; init; }
 }

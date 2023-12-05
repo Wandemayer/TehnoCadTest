@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Test.Model;
 
 namespace Test.Presentation.PropertyPanels;
@@ -11,43 +10,17 @@ public class ParcelPropsViewModel : ElementPropsViewModel<Parcel>
     /// <inheritdoc />
     public ParcelPropsViewModel(Parcel element) : base(element)
     {
+        Number = RegisterProperty(new PropertyViewModel<Parcel, string>(element, nameof(Parcel.Number)));
+        Location = RegisterProperty(new PropertyViewModel<Parcel, string>(element, nameof(Parcel.Location)));
     }
-    
+
     /// <summary>
     /// Возвращает или задает номер участка.
     /// </summary>
-    public string Number
-    {
-        get => Element.Number;
-        set => Element.Number = value;
-    }
+    public PropertyViewModel<Parcel, string> Number { get; }
 
     /// <summary>
     /// Возвращает или задает описание местоположения участка.
     /// </summary>
-    public string Location
-    {
-        get => Element.Location;
-        set => Element.Location = value;
-    }
-
-    /// <inheritdoc />
-    protected override void ElementOnPropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        switch (e.PropertyName)
-        {
-            case nameof(Parcel.Number):
-            {
-                OnPropertyChanged(nameof(Number));
-                break;
-            }
-            case nameof(Parcel.Location):
-            {
-                OnPropertyChanged(nameof(Location));
-                break;
-            }
-        }
-        
-        base.ElementOnPropertyChanged(sender, e);
-    }
+    public PropertyViewModel<Parcel, string> Location { get; }
 }

@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Test.Model;
 
 namespace Test.Presentation.PropertyPanels;
@@ -11,58 +10,24 @@ public class BuildingPropsViewModel : ElementPropsViewModel<Building>
     /// <inheritdoc />
     public BuildingPropsViewModel(Building element) : base(element)
     {
+        FloorCount = RegisterProperty(new PropertyViewModel<Building, int>(element, nameof(Building.FloorCount)));
+        Address = RegisterProperty(new PropertyViewModel<Building, string>(element, nameof(Building.Address)));
+        IsLiving = RegisterProperty(new PropertyViewModel<Building, bool>(element, nameof(Building.IsLiving)));
     }
     
     /// <summary>
     /// Возвращает или задает количество этажей в здании.
     /// </summary>
-    public int FloorCount
-    {
-        get => Element.FloorCount;
-        set => Element.FloorCount = value;
-    }
-
+    public PropertyViewModel<Building, int> FloorCount { get; }
+    
     /// <summary>
     /// Возвращает или задает адрес здания.
     /// </summary>
-    public string Address
-    {
-        get => Element.Address;
-        set => Element.Address = value;
-    }
-
+    public PropertyViewModel<Building, string> Address { get; }
+    
     /// <summary>
     /// Возвращает или задает значение,
     /// определяющее является ли здание живым.
     /// </summary>
-    public bool IsLiving
-    {
-        get => Element.IsLiving;
-        set => Element.IsLiving = value;
-    }
-
-    /// <inheritdoc />
-    protected override void ElementOnPropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        switch (e.PropertyName)
-        {
-            case nameof(Building.FloorCount):
-            {
-                OnPropertyChanged(nameof(FloorCount));
-                break;
-            }
-            case nameof(Building.Address):
-            {
-                OnPropertyChanged(nameof(Address));
-                break;
-            }
-            case nameof(Building.IsLiving):
-            {
-                OnPropertyChanged(nameof(IsLiving));
-                break;
-            }
-        }
-        
-        base.ElementOnPropertyChanged(sender, e);
-    }
+    public PropertyViewModel<Building, bool> IsLiving { get; }
 }

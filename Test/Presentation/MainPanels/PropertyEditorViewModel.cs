@@ -9,7 +9,7 @@ namespace Test.Presentation.MainPanels;
 public class PropertyEditorViewModel : ViewModelBase
 {
     private ProjectElementBase? _editorElement;
-    private ViewModelBase? _elementPropsViewModel;
+    private PropertiesViewModel? _elementPropsViewModel;
 
     /// <summary>
     /// Возвращает или залает элемент, свойства которого будут рассмотрены.
@@ -34,17 +34,26 @@ public class PropertyEditorViewModel : ViewModelBase
     /// <summary>
     /// Возвращает модель представления панели свойств <see cref="EditorElement"/>.
     /// </summary>
-    public ViewModelBase? ElementPropsViewModel
+    public PropertiesViewModel? ElementPropsViewModel
     {
         get => _elementPropsViewModel;
         private set
         {
             var oldPropViewModel = _elementPropsViewModel;
-            
+
             if (SetField(ref _elementPropsViewModel, value))
             {
                 oldPropViewModel?.Cleanup();
             }
         }
+    }
+
+    /// <summary>
+    /// Устанавливает фокус на свойство.
+    /// </summary>
+    /// <param name="propertyName">Наименование фокусируемого свойства.</param>
+    public void SetFocusOnProperty(string propertyName)
+    {
+        ElementPropsViewModel?.SetFocus(propertyName);
     }
 }

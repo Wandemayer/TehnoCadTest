@@ -47,9 +47,10 @@ public class MainWindowViewModel : ViewModelBase
 
     private void ValidationPanelViewModelOnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(ValidationPanelViewModel.SelectedMessage))
-        {
-            ProjectExplorerViewModel.SelectedProjectElement = ValidationPanelViewModel.SelectedMessage?.Target;
-        }
+        if (e.PropertyName != nameof(ValidationPanelViewModel.SelectedMessage)) return;
+        if (ValidationPanelViewModel.SelectedMessage is null) return;
+        
+        ProjectExplorerViewModel.SelectedProjectElement = ValidationPanelViewModel.SelectedMessage.Target;
+        PropertyEditorViewModel.SetFocusOnProperty(ValidationPanelViewModel.SelectedMessage.PropertyName);
     }
 }

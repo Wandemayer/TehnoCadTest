@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:proreptyPanels="clr-namespace:Test.Presentation.PropertyPanels"
-             d:DataContext="{d:DesignInstance proreptyPanels:ParcelPropsViewModel}"
+             xmlns:propertyPanels="clr-namespace:Test.Presentation.PropertyPanels"
+             xmlns:ui="clr-namespace:Test.UI"
+             d:DataContext="{d:DesignInstance propertyPanels:ParcelPropsViewModel}"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -23,7 +24,8 @@
 
             <TextBox Grid.Column="1"
                      VerticalContentAlignment="Center"
-                     Text="{Binding Title}" />
+                     ui:FocusExtension.IsFocused="{Binding Title.IsFocused}"
+                     Text="{Binding Title.Value}" />
         </Grid>
 
         <Grid Margin="{StaticResource TopMargin}">
@@ -52,7 +54,8 @@
 
             <TextBox Grid.Column="1"
                      VerticalContentAlignment="Center"
-                     Text="{Binding Number}" />
+                     ui:FocusExtension.IsFocused="{Binding Number.IsFocused}"
+                     Text="{Binding Number.Value}" />
         </Grid>
 
         <Grid Margin="{StaticResource TopMargin}">
@@ -66,7 +69,8 @@
 
             <TextBox Grid.Column="1"
                      VerticalContentAlignment="Center"
-                     Text="{Binding Location}" />
+                     ui:FocusExtension.IsFocused="{Binding Location.IsFocused}"
+                     Text="{Binding Location.Value}" />
         </Grid>
     </StackPanel>
 </UserControl>

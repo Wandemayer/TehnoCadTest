@@ -6,7 +6,6 @@
              xmlns:mainPanels="clr-namespace:Test.Presentation.MainPanels"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:model="clr-namespace:Test.Model"
-             xmlns:presentation="clr-namespace:Test.Presentation"
              xmlns:ui="clr-namespace:Test.UI"
              d:DataContext="{d:DesignInstance mainPanels:PropertyEditorViewModel}"
              d:DesignHeight="300"

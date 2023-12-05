@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:proreptyPanels="clr-namespace:Test.Presentation.PropertyPanels"
-             d:DataContext="{d:DesignInstance proreptyPanels:BuildingPropsViewModel}"
+             xmlns:propertyPanels="clr-namespace:Test.Presentation.PropertyPanels"
+             xmlns:ui="clr-namespace:Test.UI"
+             d:DataContext="{d:DesignInstance propertyPanels:BuildingPropsViewModel}"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -23,7 +24,8 @@
 
             <TextBox Grid.Column="1"
                      VerticalContentAlignment="Center"
-                     Text="{Binding Title}" />
+                     ui:FocusExtension.IsFocused="{Binding Title.IsFocused}"
+                     Text="{Binding Title.Value}" />
         </Grid>
 
         <Grid Margin="{StaticResource TopMargin}">
@@ -53,7 +55,8 @@
 
             <TextBox Grid.Column="1"
                      VerticalContentAlignment="Center"
-                     Text="{Binding FloorCount}" />
+                     ui:FocusExtension.IsFocused="{Binding FloorCount.IsFocused}"
+                     Text="{Binding FloorCount.Value}" />
         </Grid>
 
         <Grid Margin="{StaticResource TopMargin}">
@@ -67,11 +70,12 @@
 
             <TextBox Grid.Column="1"
                      VerticalContentAlignment="Center"
-                     Text="{Binding Address}" />
+                     ui:FocusExtension.IsFocused="{Binding Address.IsFocused}"
+                     Text="{Binding Address.Value}" />
         </Grid>
 
         <CheckBox Margin="{StaticResource TopMargin}"
                   Content="Является жилым"
-                  IsChecked="{Binding IsLiving}" />
+                  IsChecked="{Binding IsLiving.Value}" />
     </StackPanel>
 </UserControl>
